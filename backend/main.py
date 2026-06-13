@@ -21,6 +21,9 @@ app.add_middleware(
 )
 
 trainer = FederatedTrainer()
+# Auto-train on startup so the deployed model is always ready
+for _ in range(25):
+    trainer.run_round()
 
 # Human-readable explanations per feature
 FEATURE_LABELS = {
