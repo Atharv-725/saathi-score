@@ -90,7 +90,8 @@ export default function ApplyView() {
           <div style={{ marginTop: 18, color: "var(--red)", fontSize: 14 }}>{error}</div>
         )}
 
-<button
+        {/* Sample applicant fill buttons */}
+        <button
           onClick={() => setForm({
             name: "Lakshmi", daily_income_avg: "700", income_consistency: 0.8,
             upi_txn_per_week: "25", utility_payment_ratio: 0.9, savings_rate: 0.3,
@@ -103,18 +104,6 @@ export default function ApplyView() {
           }}
         >
           Fill: Lakshmi (vegetable vendor)
-        </button>
-        
-        <button
-          onClick={submit}
-          disabled={loading}
-          style={{
-            marginTop: 26, width: "100%", border: "none",
-            background: "var(--ink)", color: "var(--paper)",
-            padding: "15px 0", borderRadius: 12, fontSize: 15.5, fontWeight: 600,
-          }}
-        >
-          {loading ? "Checking…" : "Get my Saathi Score"}
         </button>
 
         <button
@@ -129,7 +118,20 @@ export default function ApplyView() {
             padding: "11px 0", borderRadius: 12, fontSize: 14, fontWeight: 600,
           }}
         >
-        Fill: Ravi (new auto driver)
+          Fill: Ravi (new auto driver)
+        </button>
+
+        {/* Submit */}
+        <button
+          onClick={submit}
+          disabled={loading}
+          style={{
+            marginTop: 18, width: "100%", border: "none",
+            background: "var(--ink)", color: "var(--paper)",
+            padding: "15px 0", borderRadius: 12, fontSize: 15.5, fontWeight: 600,
+          }}
+        >
+          {loading ? "Checking…" : "Get my Saathi Score"}
         </button>
       </div>
     </div>
@@ -192,6 +194,10 @@ function ScoreReveal({ result, onBack }) {
             Run training on the Lender Network tab, then score again.
           </div>
         )}
+
+        <div style={{ fontSize: 14, color: "var(--ink-soft)" }}>
+          {result.name}, your Saathi Score is
+        </div>
 
         <ScoreArc score={result.score} pct={pct} color={d.fg} />
 
